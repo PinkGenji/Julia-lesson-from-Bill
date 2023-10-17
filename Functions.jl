@@ -34,3 +34,13 @@ xp, xm = solve_quadratic(1,-5,2)
 #But we cannot see the local variable "sqrt_dscr" within the function.
 sqrt_dscr
 
+#We do not need to define all values as local variables. We can leave the dummy variable as it is, when we do not know the valueL:
+h3(x) = 2x-b #here, b is a dummy variable that need to be defined in the 'global' scope.
+
+#When there is no return written, Julia just returns the value of the final line of its body:
+function h1(x)
+    a = 3
+    x^2+a
+end 
+
+#Anonymous Functions...
