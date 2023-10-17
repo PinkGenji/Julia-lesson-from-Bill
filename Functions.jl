@@ -25,3 +25,12 @@ normal_distribution(x,μ=0.0,σ=1.0) = exp(-((x-μ)/σ)^2/2) / (σ*sqrt(2π))
 normal_distribution(0.5) #This returns the normal density at x=0.5 with mean = 0, sd = 1
 normal_distribution(0.5,3.0,0.5) #This returns the normal density at x=0.5, with mean=3, sd=0.5
 
+#Local variables...
+#For the functions f and g above, the return value could be calculated with just a single
+#expression, but often more lines of code are needed. We can store such 'function files'
+#for later use. We are going to use the solve_quadratic function file:
+include("solve_quadratic.jl")
+xp, xm = solve_quadratic(1,-5,2)
+#But we cannot see the local variable "sqrt_dscr" within the function.
+sqrt_dscr
+
