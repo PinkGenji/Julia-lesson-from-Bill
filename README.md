@@ -1,2 +1,2 @@
 # Bill-s-Julia
-Bill McLean's 10 Julia programming lessons
+Dr. Bill McLean's 10 Julia programming lessons from UNSW
