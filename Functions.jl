@@ -44,3 +44,44 @@ function h1(x)
 end 
 
 #Anonymous Functions...
+#Instead of defining a function with the name f, we could use -> to define an anonymous function:
+z = find_zero(x -> sin(4x)-log(x), [0.5, 1.0])
+#An equivalent statement is a 'do-construct'. The lines between 'do' and 'end' form the body of an anonymous function,
+#that is inserted as a the first argument in the function call that preceds 'do'. 
+#'do construct' is more useful when we need several lines to write out the function.
+z = find_zero([0.5, 1.0]) do x
+    sin(4x) - log(x)
+end
+
+#Dot syntax...
+#Given a function f and a vector v:
+f(x) = sin(4x) - log(x)
+v = [2,3,4,5,6]
+#The dot syntax evaluates f for each element of v.
+w = f.(v)
+#We make any scalar function operate elementwise on a vector argument by inesrting a dot before the parentheses in a function call.
+
+#Mutatble arguments...
+#Consider the function f:
+function f(x)
+    x *=2
+    return x^2
+end
+z = 3; w =f(z)
+#Here, the variable 'z' is unchanged. But we must be more careful when argument is a 
+#mutable container:
+function f!(x)
+    x[1] *=2
+    return sum(x)
+end
+z = [1,2,3]
+w = f!(z)
+z
+#In the above case, the variable 'z' is a mutable containter, i.e. vector, hence the value was changed after prforming the function.
+#To avoid this, we should use copy() during evaluating.
+
+#Macros...
+#A macro is a rule or pattern for transforming a tuple of arguments to a returned expression that Julia evaluates.
+#In Julia, the name of every macro begins with '@':
+escape_velocity = 11.2
+@show escape_velocity
