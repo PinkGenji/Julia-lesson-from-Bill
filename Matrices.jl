@@ -23,5 +23,14 @@ randn(2,3) #Creates a 2-by-3 matrix of random numbers, normally distributed with
 B = ones(3,3);
 C = [A B];
 size(C) #Since both A, B have 3-rows and in total, 4+3=7 columns.
-
+B2 = ones(3,4);
+D = [A;B2]
+#Alternatively, we can use hcat() and vcat():
+C2 = hcat(A,B2)
+D2 = vcat(A,B2)
+#Julia treats the Vector types as a column vector, both of the following expression are column vector.
+v = [2, -1, 9, 7]
+v=[2;-1;9;7]
+#whereas v = [2 -1 9 7] is a row vector, or 1-by-4 matrix:
+v = [2 -1 9 7]
 
