@@ -32,6 +32,7 @@ plot!(x,y3)
 
 #To save a copy of a plot as .png or .pdf, we can use:
 #savefig("myplot.png") or savefig("myplot.pdf")
+#NOTE: double quote must be used for multiple characters in Julia. Single quote can only be used for individual characters.
 
 #Subplots...
 #It is also possible to display several subplots, see the file "my_subplots.jl"
@@ -45,4 +46,16 @@ plot(x,y, legend = false, xticks = ([0, π/2, π, 3π/2, 2π], ["0", "π/2", "π
 plot(x,y, legend = false, xticks = ([0, π/2, π, 3π/2, 2π], ["0", "π/2", "π", "3π/2", "2π"]), ylims=(0, 1))
 
 #Polar plots...
+#Remember the polar coodinates: x = r cos(θ) and y = r sin(θ)? We can plot the curve r = 1 + cos(θ) for -π≤θ≤π:
+θ = range(-π, π, length = 201);
+r = 1 .+ cos.(θ);
+plot(θ, r, projections= :polar, legend=false)
 
+#Histogram is often used in statistics, we can also do it with Julia:
+x = randn(1000);
+histogram(x, bins=range(-4, 4, length = 17))
+#Overlay a normal curve:
+normal_pdf(x) = exp(-x.^2/2) / sqrt(2π);
+sample = randn(1000);
+histogram(sample, bins = range(-4,4,length=17), normalized = :pdf, label = "Sample PDF")
+plot!(normal_pdf, label="Std Normal PDF", linewidth = 2)
