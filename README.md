@@ -1,5 +1,5 @@
 # Bill-s-Julia
-Dr. Bill McLean's 10 Julia programming lessons from UNSW
+Dr. Bill McLean's 10 Julia programming lessons from UNSW.
 The order of study/review should be:
 1) Arithmetic
 2) Names
