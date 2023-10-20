@@ -37,4 +37,7 @@ for line in eachline(io)
         println(word_list[1])
     end
 end
+#Here, split() splits the string line at every space, returning a vector whose kth element is the kth word in the line.
+#We have to allow for blank lines for which the vector is [] that has length zero and so attempting to access word_list[1] would throw a BoundsError.
+
 
