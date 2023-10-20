@@ -20,3 +20,21 @@ seek(io, 11)
 readline(io)
 #A common usage of seek() is seek(io,0) that rewinds to the start of the file.
 
+#eachline() returns an iterator that allows the file to be processed line-by-line in a for-loop.
+#Let's first rewind to the start of the file:
+seek(io,0)
+for line in eachline(io)
+    println(line)
+end
+
+#We can also print the first word in each line:
+seek(io,0)
+for line in eachline(io)
+    word_list = split(line)
+    if length(word_list) == 0
+        println()
+    else
+        println(word_list[1])
+    end
+end
+
